@@ -7482,8 +7482,9 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Gaussian-Mixture-Model-with-unknown-diagonal-covariances-via-continuous-sparse-regularization---Symbolic-computation">Gaussian Mixture Model with unknown diagonal covariances via continuous sparse regularization - Symbolic computation<a class="anchor-link" href="#Gaussian-Mixture-Model-with-unknown-diagonal-covariances-via-continuous-sparse-regularization---Symbolic-computation">¶</a></h1><p>Romane Giard - 08/2025
-___</p>
+<h1 id="Symbolic-computation-for-the-BLASSO-applied-to-GMMs-with-diagonal-covariances">Symbolic computation for the BLASSO applied to GMMs with diagonal covariances<a class="anchor-link" href="#Symbolic-computation-for-the-BLASSO-applied-to-GMMs-with-diagonal-covariances">¶</a></h1><p>Romane Giard - 08/2025</p>
+<p>Notebook associated with the paper <em>Gaussian Mixture Model with unknown diagonal covariances via continuous sparse regularization</em>, by Romane Giard, Yohann De Castro and Clément Marteau.</p>
+<hr/>
 <p><strong>Framework</strong></p>
 <p>In this notebook, we provide controls using <a href="https://docs.sympy.org/latest/index.html">SymPy</a> for the normalized Gaussian kernel $$K_{norm}(x,x')=(2u^2+\tau^2)^{1/4} (2{u'}^2+\tau^2)^{1/4}\frac{e^{-\frac{(t-t')^2}{2(u^2+{u'}^2+\tau^2)}}}{\sqrt{u^2+{u'}^2+\tau^2}}\,,$$ where $\tau&gt;0$, $x=(t,u)$ and $x'=(t',u')$ belong to $\mathbb{R}\times [u_{min},+\infty)$. The parameter $t$ (resp. $u$) represents the mean of a Gaussian (resp. the standard deviation).</p>
 <p>We give bounds for the kernel and its derivatives on regions depending on the semi-distance 
@@ -7496,7 +7497,7 @@ $$\mathfrak{g}_x=\begin{pmatrix}
 \end{pmatrix}\,.$$
 We calculate the Riemannian derivatives of $K_{norm}$ and provide controls on them.</p>
 <p>Obtaining these bounds is a crucial step to ensure the existence of a non-degenerate dual certificate for our optimization problem.</p>
-<p><strong>All main sections can be run independently of each other.</strong></p>
+<p><strong>All main sections can be run independently.</strong> The following cell must be run first.</p>
 </div>
 </div>
 </div>
@@ -10497,7 +10498,7 @@ $\displaystyle \left[ 25.7772880195037, \  170.451305666423\right]$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="VII.-Choice-of-$r,%5CDelta$-for-the-LPC">VII. Choice of $r,\Delta$ for the LPC<a class="anchor-link" href="#VII.-Choice-of-$r,%5CDelta$-for-the-LPC">¶</a></h1><p><strong>Content</strong></p>
+<h1 id="VII.-Choice-of-$r,%5CDelta$-for-the-LPC,-associated-curvature-constants">VII. Choice of $r,\Delta$ for the LPC, associated curvature constants<a class="anchor-link" href="#VII.-Choice-of-$r,%5CDelta$-for-the-LPC,-associated-curvature-constants">¶</a></h1><p><strong>Content</strong></p>
 <ul>
 <li>We provide graphical clues for the choice of $r$ in dimension $d=1$.</li>
 <li>We calculate useful quantities.</li>
@@ -10567,9 +10568,9 @@ $\bar \varepsilon_2(r)= -e^{-r^2/2}G(r)$ where $$\begin{aligned}
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedJavaScript jp-OutputArea-output" data-mime-type="application/javascript" id="2abeee20-c0eb-45f3-8d7d-d0f276d6f76d" tabindex="0">
+<div class="jp-RenderedJavaScript jp-OutputArea-output" data-mime-type="application/javascript" id="f1a4d408-5ee0-409d-bd9e-f5cae8badbce" tabindex="0">
 <script type="text/javascript">
-var element = document.getElementById('2abeee20-c0eb-45f3-8d7d-d0f276d6f76d');
+var element = document.getElementById('f1a4d408-5ee0-409d-bd9e-f5cae8badbce');
 new Promise(function(resolve, reject) {
 	var script = document.createElement("script");
 	script.onload = resolve;
@@ -10696,7 +10697,7 @@ $\displaystyle 13.8717039874483$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Let $r=0.3025$. We show that we can take $\bar\varepsilon_0(r)=\frac{0.0894}{2d} \leq 0.977 \frac{0.3025^2}{2d}$. 
+<p>Let $r=\frac{0.3025}{\sqrt{d}}$. We show that we can take $\bar\varepsilon_0(r)=\frac{0.0894}{2d} \leq 0.977 \frac{0.3025^2}{2d}$. 
 Denoting $$\square_c: r\in \mathbb{R}^+ \mapsto 1-e^{-r^2/2}- c \frac{r^2}{2}\,,$$ we have $\square_{0.977}(0.3025)\geq 0$. Moreover, $0.0894\leq 0.977 \times 0.3025^2$.</p>
 </div>
 </div>
@@ -10907,6 +10908,110 @@ $\displaystyle \left[ 0.522407749927483, \  6.61365399534523\right]$
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[76]:</div>
 <div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
 $\displaystyle 11.88063806202$
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5b4ca849-5d81-4684-9022-ba4755750bcc">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="VII.3.-Calculation-of-$%5Cvarepsilon_0,-%5Cvarepsilon_2,-%5Ctilde-%5Cvarepsilon_0,-%5Ctilde-%5Cvarepsilon_2$">VII.3. Calculation of $\varepsilon_0, \varepsilon_2, \tilde \varepsilon_0, \tilde \varepsilon_2$<a class="anchor-link" href="#VII.3.-Calculation-of-$%5Cvarepsilon_0,-%5Cvarepsilon_2,-%5Ctilde-%5Cvarepsilon_0,-%5Ctilde-%5Cvarepsilon_2$">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9ee763c6-7691-47fd-9999-735903a36928">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Let $r=\frac{0.3025}{\sqrt{d}}$. We show that we can take $(\varepsilon_0,\varepsilon_2)=\left(\frac{0.03911}{d}, 0.06158\right)$, $(\tilde \varepsilon_0,\tilde \varepsilon_2)=\left(\frac{0.03911}{d},\frac{\sqrt{4d^2+10d}}{2}+0.004106\right)$.</p>
+<p>Recall that we set $\bar\varepsilon_2(r)=0.13139$, $\bar\varepsilon_0(r)=\frac{0.0894}{2d}$, $B_{02}=\sqrt{4d^2+10d}$. 
+According to the definition of the non-degenerate certificates, and to our result linking the LPC with the existence of non-degenerate certificates, we can then choose $0&lt;\varepsilon_0=\tilde \varepsilon_0 \leq \frac{7}{8}\bar\varepsilon_0(r)$, $0&lt;\varepsilon_2 \leq \frac{15}{32}\bar\varepsilon_2(r)$, and $\tilde \varepsilon_2 \geq \frac{B_{02}}{2}+\frac{\bar\varepsilon_2(r)}{32}$.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=89955dbb-4126-4df1-af04-b3fa12bb6952">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [84]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">d</span><span class="o">=</span><span class="n">symbols</span><span class="p">(</span><span class="s2">"d"</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="mi">7</span><span class="o">/</span><span class="mi">8</span><span class="o">*</span><span class="mf">0.0894</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[84]:</div>
+<div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
+$\displaystyle \frac{0.0391125}{d}$
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3f1e322c-14c0-47d4-a81f-3d83f7f332ab">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [85]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="mi">15</span><span class="o">/</span><span class="mi">32</span><span class="o">*</span><span class="mf">0.13139</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[85]:</div>
+<div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
+$\displaystyle 0.0615890625$
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d461865b-4366-4a4a-8c64-2270e9720057">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [86]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="mf">0.13139</span><span class="o">/</span><span class="mi">32</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[86]:</div>
+<div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
+$\displaystyle 0.0041059375$
 </div>
 </div>
 </div>
